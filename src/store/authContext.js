@@ -35,8 +35,6 @@ const getLocalData = () => {
   }
 }
 
-
-
 export const AuthContextProvider = (props) => {
   const localData = getLocalData()
   
@@ -49,9 +47,29 @@ export const AuthContextProvider = (props) => {
   const [userId, setUserId] = useState(null)
 
 
-  const logout = () => {}
+  const logout = useCallback(() => {
+    setToken(null)
+    setUserId(null)
+    localStorage.setItem('token')
+    localStorage.setItem('exp')
+    localStorage.setItem('userId')
 
-  const login = () => {}
+    if (logoutTimer) {
+      clearTimeout(logoutTimer)
+    }
+  }, [])
+
+  const login = (token, exp, userId) => {
+    setToken(token)
+    setUserId(userId)
+    localStorage.setItem('token', token)
+    localStorage.setItem('exp', exp)
+    localStorage.setItem('userId', userId)
+
+    const remainingTime = calculateRemainingTime(exp)
+
+    logoutTimer = setTimeout(logout, remainingTime)
+  }
 
   const contextValue = {
     token,

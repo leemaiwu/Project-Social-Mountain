@@ -11,14 +11,8 @@ Social Mountain. The app was built using React and bootstrapped with [Create Rea
 3. Run `npm start` to start the app.
 4. Open your browser and navigate to `http://localhost:3000` to use the app.
 
-## Profile
-![Social Mountain Profile](https://github.com/leemaiwu/Project-Social-Mountain/blob/main/readme_image/login-register.png?raw=true)
-
 ## Add Post
-![Social Mountain Add Post](https://github.com/leemaiwu/Project-Social-Mountain/blob/main/readme_image/login-register.png?raw=true)
-
-## Login or Register
-![Social Mountain Login](https://github.com/leemaiwu/Project-Social-Mountain/blob/main/readme_image/login-register.png?raw=true)
+![Social Mountain Profile](https://github.com/leemaiwu/Project-Social-Mountain/blob/main/readme_image/login-register.png?raw=true)
 
 ## Features
 
