@@ -6,11 +6,15 @@ const Auth = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [register, setRegister] = useState(true);
+  const [message, setMessage] = useState('')
+  const [display, setDisplay] = useState('none')
 
   const authCtx = useContext(AuthContext)
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    setDisplay('none')
 
     const body = {
       username,
@@ -27,7 +31,9 @@ const Auth = () => {
         authCtx.login(res.data.token, res.data.exp, res.data.userId)
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data);
+        setMessage(err.response.data)
+        setDisplay('block')
         setPassword('');
         setUsername('');
       });
@@ -56,7 +62,8 @@ const Auth = () => {
             {register ? "Sign Up" : "Login"}
         </button>
       </form>
-      <button className="form-btn">
+      <p style={{display: display}} className="auth-msg">{message}</p>
+      <button className="form-btn" onClick={() => setRegister(!register)}>
         Need to {register ? "Login" : "Sign Up"}?
       </button>
     </main>
