@@ -1,9 +1,11 @@
+require('dotenv').config()
+
 module.exports = {
     register: (req, res) => {
-        console.log('register')
+        console.log('Register')
     },
     login: (req, res) => {
-        console.log('login')
+        console.log('Login')
     }
 }
 
