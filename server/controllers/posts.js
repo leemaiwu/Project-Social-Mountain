@@ -10,7 +10,7 @@ module.exports = {
         }
         catch(err) {
             console.log(err)
-            .sendStatus(400)
+            res.status(400).send(err)
         }
     },
     getAllPosts: async (req, res) => {

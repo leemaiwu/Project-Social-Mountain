@@ -10,6 +10,6 @@ module.exports = {
             primaryKey: true
         },
         username: DataTypes.STRING,
-        hachedPass: DataTypes.STRING
+        hashedPass: DataTypes.STRING
     })
 }

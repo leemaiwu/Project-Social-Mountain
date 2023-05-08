@@ -24,7 +24,7 @@ const Auth = () => {
 
     axios
       .post(register ? `http://localhost:4005/register` : `http://localhost:4005/login`, body)
-      .then(({res}) => {
+      .then((res) => {
         console.log(res)
         setRegister(res)
         authCtx.login(res.data.token, res.data.exp, res.data.userId)

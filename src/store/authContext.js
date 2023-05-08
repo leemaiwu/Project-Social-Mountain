@@ -33,7 +33,7 @@ const getLocalData = () => {
   return {
     token: storedToken,
     duration: remainingTime,
-    userId: storeId
+    userId: +storeId
   }
 }
 
@@ -54,9 +54,9 @@ export const AuthContextProvider = (props) => {
   const logout = useCallback(() => {
     setToken(null)
     setUserId(null)
-    localStorage.setItem('token')
-    localStorage.setItem('exp')
-    localStorage.setItem('userId')
+    localStorage.removeItem('token')
+    localStorage.removeItem('exp')
+    localStorage.removeItem('userId')
 
     if (logoutTimer) {
       clearTimeout(logoutTimer)
